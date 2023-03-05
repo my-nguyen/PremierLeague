@@ -2,11 +2,14 @@ package com.theandroidfactory.premierleague
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.theandroidfactory.premierleague.databinding.ItemClubBinding
 
-class ClubsAdapter(private val clubs: List<Club>): RecyclerView.Adapter<ClubsAdapter.ViewHolder>() {
+class ClubsAdapter(private val clubs: List<Club>, private val listener: OnClickListener): RecyclerView.Adapter<ClubsAdapter.ViewHolder>() {
+    interface OnClickListener {
+        fun onButtonClicked(position: Int)
+    }
+
     inner class ViewHolder(private val binding: ItemClubBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(club: Club) {
             binding.apply {
@@ -14,7 +17,8 @@ class ClubsAdapter(private val clubs: List<Club>): RecyclerView.Adapter<ClubsAda
                 title.text = club.title
                 description.text = club.description
                 button.setOnClickListener {
-                    Toast.makeText(it.context, "$adapterPosition clicked", Toast.LENGTH_LONG).show()
+//                    Toast.makeText(it.context, "$adapterPosition clicked", Toast.LENGTH_LONG).show()
+                    listener.onButtonClicked(adapterPosition)
                 }
             }
         }

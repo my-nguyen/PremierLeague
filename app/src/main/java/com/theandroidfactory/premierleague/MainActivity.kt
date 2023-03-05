@@ -1,5 +1,6 @@
 package com.theandroidfactory.premierleague
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,10 +13,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val clubs = getClubs()
-        val adapter = ClubsAdapter(clubs)
+        val adapter = ClubsAdapter(clubs, object: ClubsAdapter.OnClickListener {
+            override fun onButtonClicked(position: Int) {
+                startActivity(Intent(this@MainActivity, DetailActivity::class.java))
+            }
+        })
+
         binding.recycler.adapter = adapter
         binding.recycler.layoutManager = LinearLayoutManager(this)
-//        adapter.notifyDataSetChanged()
     }
 
     private fun getClubs(): List<Club> {
