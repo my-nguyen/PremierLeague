@@ -8,4 +8,4 @@ data class Club(
     val buttonText: String = "",
     val imageResId: Int = 0,
     val imageUrl: String = ""
-)
+): java.io.Serializable

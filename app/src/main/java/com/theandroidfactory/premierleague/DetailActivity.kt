@@ -11,7 +11,18 @@ class DetailActivity: AppCompatActivity() {
         val binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            title = "Club Overview"
+        }
+        val backup = Club(title = "Whoops", description = "Something went wrong, please try again")
+        val club = intent.getSerializableExtra("EXTRA_CLUB") as Club ?: backup
+        binding.apply {
+            image.setImageResource(club.imageResId)
+            title.text = club.title
+            description.text = club.description
+            descriptionLong.text = club.descriptionLong
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
