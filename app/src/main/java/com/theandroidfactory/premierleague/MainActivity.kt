@@ -2,6 +2,7 @@ package com.theandroidfactory.premierleague
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.theandroidfactory.premierleague.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -11,6 +12,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val clubs = getClubs()
+        val adapter = ClubsAdapter(clubs)
+        binding.recycler.adapter = adapter
+        binding.recycler.layoutManager = LinearLayoutManager(this)
+//        adapter.notifyDataSetChanged()
     }
 
     private fun getClubs(): List<Club> {
