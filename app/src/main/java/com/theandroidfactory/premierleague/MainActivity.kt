@@ -9,6 +9,8 @@ import com.theandroidfactory.premierleague.databinding.ActivityMainBinding
 private const val TAG = "MainActivity-Truong"
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var adapter: ClubsAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
@@ -16,12 +18,17 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.title = "Premier League Home"
         MyApplication.clubs = getClubs()
-        val adapter = ClubsAdapter(MyApplication.clubs, object: ClubsAdapter.OnClickListener {
+        adapter = ClubsAdapter(MyApplication.clubs, object: ClubsAdapter.OnClickListener {
             override fun onButtonClicked(position: Int) {
                 val intent = Intent(this@MainActivity, DetailActivity::class.java).apply {
                     putExtra("EXTRA_CLUB_ID", MyApplication.clubs[position].id)
                 }
                 startActivity(intent)
+            }
+
+            override fun onFavoriteClicked(position: Int) {
+                MyApplication.clubs[position].isFavorite = !MyApplication.clubs[position].isFavorite
+                adapter.notifyItemChanged(position)
             }
         })
 

@@ -8,6 +8,7 @@ import com.theandroidfactory.premierleague.databinding.ItemClubBinding
 class ClubsAdapter(private val clubs: List<Club>, private val listener: OnClickListener): RecyclerView.Adapter<ClubsAdapter.ViewHolder>() {
     interface OnClickListener {
         fun onButtonClicked(position: Int)
+        fun onFavoriteClicked(position: Int)
     }
 
     inner class ViewHolder(private val binding: ItemClubBinding): RecyclerView.ViewHolder(binding.root) {
@@ -17,8 +18,11 @@ class ClubsAdapter(private val clubs: List<Club>, private val listener: OnClickL
                 title.text = club.title
                 description.text = club.description
                 button.setOnClickListener {
-//                    Toast.makeText(it.context, "$adapterPosition clicked", Toast.LENGTH_LONG).show()
                     listener.onButtonClicked(adapterPosition)
+                }
+                favorite.setImageResource(if (club.isFavorite) R.drawable.ic_favorite else R.drawable.ic_favorite_outline)
+                favorite.setOnClickListener {
+                    listener.onFavoriteClicked(adapterPosition)
                 }
             }
         }
