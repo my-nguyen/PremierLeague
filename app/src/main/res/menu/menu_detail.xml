@@ -12,7 +12,7 @@
 
     <item
         android:id="@+id/menu_favorite"
-        android:icon="@drawable/ic_favorite"
+        android:icon="@drawable/ic_favorite_outline"
         android:orderInCategory="1"
         android:title="Favorite"
         app:iconTint="@color/white"

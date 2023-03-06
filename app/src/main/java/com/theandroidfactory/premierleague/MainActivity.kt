@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.theandroidfactory.premierleague.databinding.ActivityMainBinding
 
+private const val TAG = "MainActivity-Truong"
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -13,11 +15,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.title = "Premier League Home"
-        val clubs = getClubs()
-        val adapter = ClubsAdapter(clubs, object: ClubsAdapter.OnClickListener {
+        MyApplication.clubs = getClubs()
+        val adapter = ClubsAdapter(MyApplication.clubs, object: ClubsAdapter.OnClickListener {
             override fun onButtonClicked(position: Int) {
                 val intent = Intent(this@MainActivity, DetailActivity::class.java).apply {
-                    putExtra("EXTRA_CLUB", clubs[position])
+                    putExtra("EXTRA_CLUB_ID", MyApplication.clubs[position].id)
                 }
                 startActivity(intent)
             }

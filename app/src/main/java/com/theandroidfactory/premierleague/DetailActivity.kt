@@ -21,8 +21,10 @@ class DetailActivity: AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
             title = "Club Overview"
         }
-        val backup = Club(title = "Whoops", description = "Something went wrong, please try again")
-        club = intent.getSerializableExtra("EXTRA_CLUB") as Club ?: backup
+        val noClub = Club(title = "Whoops", description = "Something went wrong, please try again")
+        club = MyApplication.clubs.find {
+            it.id == intent.getStringExtra("EXTRA_CLUB_ID")
+        } ?: noClub
         binding.apply {
             image.setImageResource(club.imageResId)
             title.text = club.title
