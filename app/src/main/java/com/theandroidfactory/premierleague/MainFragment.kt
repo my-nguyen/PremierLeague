@@ -2,27 +2,24 @@ package com.theandroidfactory.premierleague
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.theandroidfactory.premierleague.databinding.FragmentMainBinding
 
-class MainFragment : Fragment(R.layout.fragment_main) {
+class MainFragment : BaseFragment(R.layout.fragment_main) {
     private lateinit var adapter: ClubsAdapter
     private val clubs: List<Club>
-        get() = (activity as MainActivity).clubs
+        get() = mainActivity.clubs
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as MainActivity).supportActionBar?.apply {
-            title = "Premier League"
-            setDisplayHomeAsUpEnabled(false)
-        }
+        setToolbarTitle("Premier League")
+        mainActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         adapter = ClubsAdapter(clubs, object : ClubsAdapter.OnClickListener {
             override fun onButtonClicked(position: Int) {
-                (activity as MainActivity).supportFragmentManager.commit {
+                mainActivity.supportFragmentManager.commit {
                     setReorderingAllowed(true)
                     addToBackStack(null)
                     replace(R.id.fragment_container_view, DetailFragment().apply {
