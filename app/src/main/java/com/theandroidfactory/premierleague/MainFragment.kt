@@ -15,12 +15,16 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as MainActivity).supportActionBar?.title = "Premier League"
+        (activity as MainActivity).supportActionBar?.apply {
+            title = "Premier League"
+            setDisplayHomeAsUpEnabled(false)
+        }
 
         adapter = ClubsAdapter(clubs, object : ClubsAdapter.OnClickListener {
             override fun onButtonClicked(position: Int) {
                 (activity as MainActivity).supportFragmentManager.commit {
                     setReorderingAllowed(true)
+                    addToBackStack(null)
                     replace(R.id.fragment_container_view, DetailFragment().apply {
                         arguments = Bundle().apply {
                             putString("EXTRA_CLUB_ID", clubs[position].id)
@@ -35,9 +39,10 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             }
         })
 
-        val binding = FragmentMainBinding.bind(view)
-        binding.recycler.adapter = adapter
-        binding.recycler.layoutManager = LinearLayoutManager(requireContext())
+        FragmentMainBinding.bind(view).apply {
+            recycler.adapter = adapter
+            recycler.layoutManager = LinearLayoutManager(requireContext())
+        }
     }
 
     override fun onResume() {
