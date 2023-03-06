@@ -8,5 +8,6 @@ data class Club(
     val buttonText: String = "",
     val imageResId: Int = 0,
     val imageUrl: String? = null,
-    val teamUrl: String = ""
+    val officialUrl: String = "",
+    var isFavorite: Boolean = false
 ): java.io.Serializable

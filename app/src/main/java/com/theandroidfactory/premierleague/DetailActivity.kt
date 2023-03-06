@@ -1,7 +1,8 @@
 package com.theandroidfactory.premierleague
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -37,7 +38,12 @@ class DetailActivity: AppCompatActivity() {
                 true
             }
             R.id.menu_link -> {
-                Log.i(TAG, "team URL: ${club.teamUrl}")
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(club.officialUrl)))
+                true
+            }
+            R.id.menu_favorite -> {
+                item.setIcon(if (club.isFavorite) R.drawable.ic_favorite_outline else R.drawable.ic_favorite)
+                club.isFavorite = !club.isFavorite
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -46,6 +52,9 @@ class DetailActivity: AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_detail, menu)
+        if (club.isFavorite) {
+            menu?.findItem(R.id.menu_favorite)?.setIcon(R.drawable.ic_favorite)
+        }
         return true
     }
 }

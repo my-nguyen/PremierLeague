@@ -1,8 +1,8 @@
 package com.theandroidfactory.premierleague
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.theandroidfactory.premierleague.databinding.ActivityMainBinding
 
