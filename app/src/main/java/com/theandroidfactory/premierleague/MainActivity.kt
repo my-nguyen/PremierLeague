@@ -1,47 +1,30 @@
 package com.theandroidfactory.premierleague
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.fragment.app.commit
 import com.theandroidfactory.premierleague.databinding.ActivityMainBinding
 
 private const val TAG = "MainActivity-Truong"
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var adapter: ClubsAdapter
+    lateinit var clubs: List<Club>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.title = "Premier League Home"
-        MyApplication.clubs = getClubs()
-        adapter = ClubsAdapter(MyApplication.clubs, object: ClubsAdapter.OnClickListener {
-            override fun onButtonClicked(position: Int) {
-                val intent = Intent(this@MainActivity, DetailActivity::class.java).apply {
-                    putExtra("EXTRA_CLUB_ID", MyApplication.clubs[position].id)
-                }
-                startActivity(intent)
-            }
+        clubs = generateClubs()
 
-            override fun onFavoriteClicked(position: Int) {
-                MyApplication.clubs[position].isFavorite = !MyApplication.clubs[position].isFavorite
-                adapter.notifyItemChanged(position)
-            }
-        })
-
-        binding.recycler.adapter = adapter
-        binding.recycler.layoutManager = LinearLayoutManager(this)
+        // reference: https://developer.android.com/guide/fragments/create?gclid=CjwKCAiAu5agBhBzEiwAdiR5tMhS9WEkeY84w2nB2WcMPiH5XeTk9t-XpO4LGQjAP-JexaZfhGT7DRoClKoQAvD_BwE&gclsrc=aw.ds
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            add(R.id.fragment_container_view, MainFragment())
+        }
     }
 
-    override fun onResume() {
-        super.onResume()
-        adapter.notifyDataSetChanged()
-    }
-
-    private fun getClubs(): List<Club> {
+    private fun generateClubs(): List<Club> {
         return mutableListOf<Club>().apply {
             add(
                 Club(

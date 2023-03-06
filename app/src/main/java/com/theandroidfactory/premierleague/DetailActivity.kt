@@ -21,16 +21,12 @@ class DetailActivity: AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
             title = "Club Overview"
         }
-        val noClub = Club(title = "Whoops", description = "Something went wrong, please try again")
-        club = MyApplication.clubs.find {
-            it.id == intent.getStringExtra("EXTRA_CLUB_ID")
-        } ?: noClub
-        binding.apply {
-            image.setImageResource(club.imageResId)
-            title.text = club.title
-            description.text = club.description
-            descriptionLong.text = club.descriptionLong
-        }
+//        binding.apply {
+//            image.setImageResource(club.imageResId)
+//            title.text = club.title
+//            description.text = club.description
+//            descriptionLong.text = club.descriptionLong
+//        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
