@@ -36,6 +36,11 @@ class MainActivity : AppCompatActivity() {
         binding.recycler.layoutManager = LinearLayoutManager(this)
     }
 
+    override fun onResume() {
+        super.onResume()
+        adapter.notifyDataSetChanged()
+    }
+
     private fun getClubs(): List<Club> {
         return mutableListOf<Club>().apply {
             add(
