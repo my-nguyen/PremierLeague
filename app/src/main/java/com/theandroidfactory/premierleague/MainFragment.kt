@@ -22,8 +22,9 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
                 mainActivity.supportFragmentManager.commit {
                     setReorderingAllowed(true)
                     // reference: https://developer.android.com/guide/fragments/animate
-//                    setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
-                    setCustomAnimations(R.anim.slide_in, R.anim.fade_out, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                    // setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
+                    // setCustomAnimations(R.anim.slide_in, R.anim.fade_out, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                    setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                     replace(R.id.fragment_container_view, DetailFragment().apply {
                         arguments = Bundle().apply {
                             putString("EXTRA_CLUB_ID", clubs[position].id)
