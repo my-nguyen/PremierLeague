@@ -9,6 +9,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
+import com.squareup.picasso.Picasso
 import com.theandroidfactory.premierleague.databinding.FragmentDetailBinding
 
 private const val TAG = "DetailFragment-Truong"
@@ -26,12 +27,13 @@ class DetailFragment: BaseFragment(R.layout.fragment_detail) {
         setToolbarTitle("Club Info")
         mainActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        FragmentDetailBinding.bind(view).apply {
-            image.setImageResource(club.imageResId)
+        val binding = FragmentDetailBinding.bind(view)
+        binding.apply {
             title.text = club.title
             description.text = club.description
             descriptionLong.text = club.descriptionLong
         }
+        Picasso.get().load(club.imageUrl).into(binding.image)
 
         requireActivity().addMenuProvider(object: MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {

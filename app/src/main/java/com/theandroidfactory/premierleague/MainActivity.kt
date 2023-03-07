@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                     "A longer description of the club that wouldn't fit on a single line",
                     "Learn more",
                     R.drawable.arsenal,
-                    "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F707909635156348949%2F&psig=AOvVaw3LD-FAMIEWSrHUuNjvHtKx&ust=1678072761553000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCNjbzajqw_0CFQAAAAAdAAAAABAE",
+                    "https://i.pinimg.com/originals/00/b9/57/00b957e908fd86d72b3e014892d4b895.jpg",
                     "https://www.arsenal.com/"
                 )
             )
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                     "A longer description of the club that wouldn't fit on a single line",
                     "Learn more",
                     R.drawable.man_city,
-                    "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2Fmanchester-city-twitter-header--707909635156348947%2F&psig=AOvVaw1oW573U6OyYJtDhCggcTJ6&ust=1678072656784000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCMDMxPbpw_0CFQAAAAAdAAAAABAE",
+                    "https://i.pinimg.com/originals/8f/11/48/8f11480ce075ee1ad4f006f8e4f2be8d.jpg",
                     "https://www.mancity.com/"
                 )
             )
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                     "A longer description of the club that wouldn't fit on a single line",
                     "Learn more",
                     R.drawable.man_united,
-                    "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2Fmanchester-united-twitter-header--526499012685938517%2F&psig=AOvVaw3R0K3M80JsOJbXCa2piAO0&ust=1678072099509000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCPD47ovqw_0CFQAAAAAdAAAAABAE",
+                    "https://i.pinimg.com/originals/8f/85/15/8f85159ed8306846b050386384893c1e.jpg",
                     "https://www.manutd.com/"
                 )
             )
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                     "A longer description of the club that wouldn't fit on a single line",
                     "Learn more",
                     R.drawable.tottenham,
-                    "https://www.google.com/url?sa=i&url=https%3A%2F%2Ff-edits.tumblr.com%2Fpost%2F151100205100%2Ftottenham-hotspur-twitter-header&psig=AOvVaw0Y8J1XHoWxDlsmts04vnRI&ust=1678072810565000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCOjE_b_qw_0CFQAAAAAdAAAAABAE",
+                    "https://64.media.tumblr.com/7474355861d4269d4f27e91986895b8f/tumblr_odrogoBumv1ude0uno1_500h.jpg",
                     "https://www.tottenhamhotspur.com/"
                 )
             )
@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
                     "A longer description of the club that wouldn't fit on a single line",
                     "Learn more",
                     R.drawable.chelsea,
-                    "https://www.google.com/url?sa=i&url=https%3A%2F%2Ff-edits.tumblr.com%2Fpost%2F150435158577%2Fchelsea-twitter-header&psig=AOvVaw3YlI4FrFIcLlB9ZNw_k1te&ust=1678072837414000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCPC75szqw_0CFQAAAAAdAAAAABAE",
+                    "https://64.media.tumblr.com/4163bc45d59f167c164b84cc7cfd5f9c/tumblr_od5gi53Zgi1ude0uno1_500h.jpg",
                     "https://www.chelseafc.com/en"
                 )
             )
@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
                     "A longer description of the club that wouldn't fit on a single line",
                     "Learn more",
                     R.drawable.leicester_city,
-                    "https://www.google.com/url?sa=i&url=https%3A%2F%2Ftwitter.com%2FF_Edits%2Fstatus%2F773110666102267904&psig=AOvVaw09E-NjBhKa-s2GLIMJ--eS&ust=1678072935728000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCKjZ1Pvqw_0CFQAAAAAdAAAAABAE",
+                    "https://pbs.twimg.com/media/Crqj7hGW8AAhXJW.jpg",
                     "https://www.lcfc.com/?lang=en"
                 )
             )
