@@ -21,12 +21,15 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
             override fun onButtonClicked(position: Int) {
                 mainActivity.supportFragmentManager.commit {
                     setReorderingAllowed(true)
-                    addToBackStack(null)
+                    // reference: https://developer.android.com/guide/fragments/animate
+//                    setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
+                    setCustomAnimations(R.anim.slide_in, R.anim.fade_out, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                     replace(R.id.fragment_container_view, DetailFragment().apply {
                         arguments = Bundle().apply {
                             putString("EXTRA_CLUB_ID", clubs[position].id)
                         }
                     })
+                    addToBackStack(null)
                 }
             }
 
