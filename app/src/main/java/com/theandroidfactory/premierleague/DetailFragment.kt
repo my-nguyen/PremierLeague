@@ -56,6 +56,7 @@ class DetailFragment: BaseFragment(R.layout.fragment_detail) {
                     R.id.menu_favorite -> {
                         menuItem.setIcon(if (club.isFavorite) R.drawable.ic_favorite_outline else R.drawable.ic_favorite)
                         club.isFavorite = !club.isFavorite
+                        Preferences.setFavoriteClub(club.id, club.isFavorite)
                         true
                     }
                     else -> false

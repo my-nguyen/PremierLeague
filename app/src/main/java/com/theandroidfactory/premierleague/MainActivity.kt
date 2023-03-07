@@ -35,7 +35,8 @@ class MainActivity : AppCompatActivity() {
                     "Learn more",
                     R.drawable.arsenal,
                     "https://i.pinimg.com/originals/00/b9/57/00b957e908fd86d72b3e014892d4b895.jpg",
-                    "https://www.arsenal.com/"
+                    "https://www.arsenal.com/",
+                    Preferences.getFavoriteClub("arsenal")
                 )
             )
             add(
@@ -47,7 +48,8 @@ class MainActivity : AppCompatActivity() {
                     "Learn more",
                     R.drawable.man_city,
                     "https://i.pinimg.com/originals/8f/11/48/8f11480ce075ee1ad4f006f8e4f2be8d.jpg",
-                    "https://www.mancity.com/"
+                    "https://www.mancity.com/",
+                    Preferences.getFavoriteClub("man_city")
                 )
             )
             add(
@@ -59,7 +61,8 @@ class MainActivity : AppCompatActivity() {
                     "Learn more",
                     R.drawable.man_united,
                     "https://i.pinimg.com/originals/8f/85/15/8f85159ed8306846b050386384893c1e.jpg",
-                    "https://www.manutd.com/"
+                    "https://www.manutd.com/",
+                    Preferences.getFavoriteClub("man_united")
                 )
             )
             add(
@@ -71,7 +74,8 @@ class MainActivity : AppCompatActivity() {
                     "Learn more",
                     R.drawable.tottenham,
                     "https://64.media.tumblr.com/7474355861d4269d4f27e91986895b8f/tumblr_odrogoBumv1ude0uno1_500h.jpg",
-                    "https://www.tottenhamhotspur.com/"
+                    "https://www.tottenhamhotspur.com/",
+                    Preferences.getFavoriteClub("tottenham")
                 )
             )
             add(
@@ -83,7 +87,8 @@ class MainActivity : AppCompatActivity() {
                     "Learn more",
                     R.drawable.chelsea,
                     "https://64.media.tumblr.com/4163bc45d59f167c164b84cc7cfd5f9c/tumblr_od5gi53Zgi1ude0uno1_500h.jpg",
-                    "https://www.chelseafc.com/en"
+                    "https://www.chelseafc.com/en",
+                    Preferences.getFavoriteClub("chelsea")
                 )
             )
             add(
@@ -95,7 +100,8 @@ class MainActivity : AppCompatActivity() {
                     "Learn more",
                     R.drawable.leicester_city,
                     "https://pbs.twimg.com/media/Crqj7hGW8AAhXJW.jpg",
-                    "https://www.lcfc.com/?lang=en"
+                    "https://www.lcfc.com/?lang=en",
+                    Preferences.getFavoriteClub("leicester_city")
                 )
             )
         }

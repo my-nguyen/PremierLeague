@@ -31,8 +31,10 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
             }
 
             override fun onFavoriteClicked(position: Int) {
-                clubs[position].isFavorite = !clubs[position].isFavorite
+                val club = clubs[position]
+                club.isFavorite = !club.isFavorite
                 adapter.notifyItemChanged(position)
+                Preferences.setFavoriteClub(club.id, club.isFavorite)
             }
         })
 
