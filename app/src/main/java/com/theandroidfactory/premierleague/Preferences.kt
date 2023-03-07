@@ -7,14 +7,12 @@ object Preferences {
     private lateinit var preferences: SharedPreferences
 
     fun init(context: Context) {
-        preferences = context.getSharedPreferences("${BuildConfig.APPLICATION_ID}.shared_preferences", Context.MODE_PRIVATE)
+        preferences = context.getSharedPreferences("${BuildConfig.APPLICATION_ID}.shared_2", Context.MODE_PRIVATE)
     }
 
-    fun setFavoriteClub(id: String, value: Boolean) = setBoolean(id, value)
+    fun setFavoriteClub(id: String, value: Boolean) = preferences.edit().putBoolean(id, value).apply()
 
-    fun getFavoriteClub(id: String) = getBoolean(id)
+    fun getFavoriteClub(id: String) = preferences.getBoolean(id, false)
 
-    private fun setBoolean(name: String, value: Boolean) = preferences.edit().putBoolean(name, value).apply()
-
-    private fun getBoolean(name: String) = preferences.getBoolean(name, false)
+    fun clear() = preferences.edit().clear().apply()
 }
