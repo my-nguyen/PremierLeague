@@ -33,7 +33,7 @@ class DetailFragment: BaseFragment(R.layout.fragment_detail) {
             description.text = club.description
             descriptionLong.text = club.descriptionLong
         }
-        Picasso.get().load(club.imageUrl).into(binding.image)
+        Picasso.get().load(club.imageUrl).placeholder(R.mipmap.ic_launcher).into(binding.image)
 
         requireActivity().addMenuProvider(object: MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
